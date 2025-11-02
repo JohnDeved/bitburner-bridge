@@ -27,7 +27,7 @@
 	"scripts": {
 		"pretty": "prettier --write 'src/**/*.{js,ts}'",
 		"lint": "eslint --ext .js,.ts src",
-		"build": "tsc && chmod +x dist/bin.js"
+		"build": "tsc"
 	},
 	"dependencies": {
 		"chalk": "^5.4.1",
