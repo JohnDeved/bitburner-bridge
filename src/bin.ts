@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env tsx
 
 import { Command, Option } from "commander";
 import { readConfig, name, version, writeConfig, type BitburnerBridgeConfig } from "./config.ts";
