@@ -98,7 +98,7 @@ export default class BitburnerFileWatcher extends SimpleEventEmitter<BitburnerFi
 
 		// Ensure the baseDir exists, create it if it doesn't
 		try {
-			await fs.promises.access(baseDir);
+			await fs.promises.access(baseDir, fs.constants.F_OK);
 		} catch {
 			await fs.promises.mkdir(baseDir, { recursive: true });
 		}
