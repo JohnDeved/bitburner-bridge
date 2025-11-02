@@ -102,6 +102,8 @@ export default class BitburnerBridge extends SimpleEventEmitter<BitburnerBridgeE
 				await this.#server.pushFile("home", change.file, change.content!);
 				this._emit("fileActionTaken", change.file, "uploaded");
 			} else if (change.source === "remote") {
+				const dirPath = path.dirname(localFilePath);
+				await fs.promises.mkdir(dirPath, { recursive: true });
 				await fs.promises.writeFile(localFilePath, change.content!);
 				this._emit("fileActionTaken", change.file, "downloaded");
 			}
