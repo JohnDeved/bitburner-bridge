@@ -17,21 +17,22 @@
 	"author": "mwoodruff",
 	"type": "module",
 	"bin": {
-		"bitburner-bridge": "dist/bin.js"
+		"bitburner-bridge": "./src/bin.ts"
 	},
 	"files": [
-		"dist",
+		"src",
 		"README.md",
 		"LICENSE"
 	],
 	"scripts": {
 		"pretty": "prettier --write 'src/**/*.{js,ts}'",
 		"lint": "eslint --ext .js,.ts src",
-		"build": "tsc"
+		"dev": "tsx src/bin.ts"
 	},
 	"dependencies": {
 		"chalk": "^5.4.1",
 		"commander": "^13.1.0",
+		"tsx": "^4.20.6",
 		"ws": "^8.18.1"
 	},
 	"devDependencies": {

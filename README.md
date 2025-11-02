@@ -34,10 +34,16 @@ Any file with a file extension of `.js`, `.ts`, or `.txt` that is inside the `--
 
 ## How To Install
 
-Install like any other node module into your project:
+No installation required! Run directly from GitHub using npx:
 
 ```sh
-npm install --save-dev bitburner-bridge
+npx JohnDeved/bitburner-bridge run
+```
+
+Alternatively, you can install it locally in your project:
+
+```sh
+npm install --save-dev JohnDeved/bitburner-bridge
 ```
 
 ## How To Use
@@ -45,7 +51,7 @@ npm install --save-dev bitburner-bridge
 To simply use the default settings and get started, run the following in your project's root:
 
 ```sh
-npx bitburner-bridge run
+npx JohnDeved/bitburner-bridge run
 ```
 
 This will listen on the standard port of `12525` for the bitburner game. When it connects, the typescript definition file will be downloaded and written to `./types/NetscriptDefinitions.d.ts` and all files in the `./src` directory will be monitored and synchronized by polling the filesystem and game every `500`ms. Files that start with `tmp/` will not be touched.
@@ -57,21 +63,21 @@ If bitburner-bridge is running when the game is opened, the game should automati
 All options have a command line argument that can be used to override them. To see their usage, run:
 
 ```sh
-npx bitburner-bridge
+npx JohnDeved/bitburner-bridge
 ```
 
 If you would prefer a configuration file to command line arguments, settings can be added to a `bitburner-bridge.json` file instead. These defaults will still be overridden by any passed command line options.
 
 To easily create a configuration file, the save-config command can be used. To create the file with all default settings, run:
 
-```
-npx bitburner-bridge save-config
+```sh
+npx JohnDeved/bitburner-bridge save-config
 ```
 
 To update values in the config file either edit it directly, or run save-config with the option you wish to change:
 
-```
-npx bitburner-bridge save-config --port 22222
+```sh
+npx JohnDeved/bitburner-bridge save-config --port 22222
 ```
 
 ## Tips
