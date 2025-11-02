@@ -96,6 +96,13 @@ export default class BitburnerFileWatcher extends SimpleEventEmitter<BitburnerFi
 		const baseDir = this.#baseDir;
 		const files: FileSet = {};
 
+		// Ensure the baseDir exists, create it if it doesn't
+		try {
+			await fs.promises.access(baseDir);
+		} catch {
+			await fs.promises.mkdir(baseDir, { recursive: true });
+		}
+
 		const entries = await fs.promises.readdir(baseDir, { recursive: true, withFileTypes: true });
 
 		const fileReads: Record<string, Promise<string>> = {};
